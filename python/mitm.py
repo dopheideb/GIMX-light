@@ -40,8 +40,10 @@ product_ids = [
   0x028f,
 ]
 ## Find and use the Xbox360 controller.
+dev = None
 for pid in product_ids:
-    devices = usb.core.find(find_all=True, idVendor=0x045e, idProduct=pid)
+    #devices = usb.core.find(find_all=True, idVendor=0x045e, idProduct=pid)
+    devices = usb.core.find(find_all=True, idVendor=0x24c6, idProduct=0xfa01)
     for dev in devices:
         if dev is not None:
             serial_bytes = usb.util.get_string(dev, dev.iSerialNumber).encode()
